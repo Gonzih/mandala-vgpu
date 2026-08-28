@@ -37,6 +37,8 @@ const flat = [
   { name: "bloom", time: 12.4, mouse: [0.62, 0.35] },
   { name: "tunnel", time: 8.2, mouse: [0.5, 0.45] },
   { name: "moire", time: 21.7, mouse: [0.42, 0.3] },
+  { name: "yantra", time: 6.5, mouse: [0.5, 0.6] },
+  { name: "vortex", time: 9.3, mouse: [0.55, 0.4] },
 ];
 
 for (const { name, time, mouse } of flat) {
@@ -74,5 +76,15 @@ for (let i = 0; i < FRAMES; i++) {
 present.set({ u: { aspect, time: FRAMES * DT }, acc: echo.read.color });
 present.draw(shot);
 await save("echo");
+
+// Codex births: runtime-generated volumetric mandalas, one per seed.
+const { buildCodex } = await import("../src/codex.js");
+for (const seed of [7, 90210, 4, 1]) {
+  const born = buildCodex(seed);
+  console.log(`codex seed ${seed}: ${born.name} (${born.archetype}, folds ${born.folds})`);
+  const fx = effect(gpu, born.wgsl, { set: { u: { mouse: [0.5, 0.5], time: 11.0, aspect } } });
+  fx.draw(shot);
+  await save(`codex-${seed}`);
+}
 
 gpu.dispose();

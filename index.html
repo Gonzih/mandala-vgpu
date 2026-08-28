@@ -72,11 +72,27 @@
         border-color: rgba(232, 230, 255, 0.9);
         background: rgba(232, 230, 255, 0.08);
       }
+      #modes .divider {
+        width: 1px;
+        align-self: stretch;
+        margin: 4px 4px;
+        background: rgba(232, 230, 255, 0.25);
+      }
       #hint {
         font-size: 10px;
         letter-spacing: 0.14em;
         text-transform: uppercase;
         opacity: 0.45;
+      }
+      #codex-label {
+        display: none;
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        opacity: 0.7;
+      }
+      #codex-label.visible {
+        display: block;
       }
     </style>
   </head>
@@ -89,8 +105,16 @@
         <button data-mode="1">Depths</button>
         <button data-mode="2">Temple</button>
         <button data-mode="3">Echo</button>
+        <button data-mode="4">Yantra</button>
+        <button data-mode="5">Vortex</button>
+        <button data-mode="6">Codex</button>
+        <span class="divider"></span>
+        <button id="cycle">Cycle</button>
       </div>
-      <div id="hint">move to steer &middot; 1&ndash;4 modes &middot; f fullscreen</div>
+      <div id="codex-label"></div>
+      <div id="hint">
+        move to steer &middot; 1&ndash;7 modes &middot; space next &middot; c cycle &middot; g new codex &middot; f fullscreen
+      </div>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>

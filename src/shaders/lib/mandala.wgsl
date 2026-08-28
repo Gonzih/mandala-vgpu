@@ -39,6 +39,12 @@ export fn glowPoint(d: f32, k: f32) -> f32 {
   return k / (d * d + k);
 }
 
+// Classic hue/saturation/value to RGB.
+export fn hsv(h: f32, s: f32, v: f32) -> vec3f {
+  let k = abs(fract(vec3f(h) + vec3f(0.0, 2.0 / 3.0, 1.0 / 3.0)) * 6.0 - 3.0);
+  return v * mix(vec3f(1.0), clamp(k - 1.0, vec3f(0.0), vec3f(1.0)), s);
+}
+
 // Soft luminous ring at radius `center`.
 export fn softRing(r: f32, center: f32, width: f32) -> f32 {
   return smoothstep(width, 0.0, abs(r - center));

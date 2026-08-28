@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "check:wgsl": "vgpu check src/shaders/bloom.wgsl && vgpu check src/shaders/tunnel.wgsl && vgpu check src/shaders/moire.wgsl && vgpu check src/shaders/echo-feedback.wgsl && vgpu check src/shaders/echo-present.wgsl"
+    "check:wgsl": "vgpu check src/shaders/bloom.wgsl && vgpu check src/shaders/tunnel.wgsl && vgpu check src/shaders/moire.wgsl && vgpu check src/shaders/yantra.wgsl && vgpu check src/shaders/vortex.wgsl && vgpu check src/shaders/echo-feedback.wgsl && vgpu check src/shaders/echo-present.wgsl"
   },
   "dependencies": {
     "@vgpu/render": "^0.3.1",
