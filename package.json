@@ -1,0 +1,23 @@
+{
+  "name": "mandala-vgpu",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "check:wgsl": "vgpu check src/shaders/bloom.wgsl && vgpu check src/shaders/tunnel.wgsl && vgpu check src/shaders/moire.wgsl && vgpu check src/shaders/echo-feedback.wgsl && vgpu check src/shaders/echo-present.wgsl"
+  },
+  "dependencies": {
+    "@vgpu/render": "^0.3.1",
+    "vgpu": "latest"
+  },
+  "devDependencies": {
+    "@types/pngjs": "^6.0.5",
+    "@vgpu/wgsl": "latest",
+    "pngjs": "^7.0.0",
+    "typescript": "^5.6.0",
+    "vite": "^6.0.0"
+  }
+}

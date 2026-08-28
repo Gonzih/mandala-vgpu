@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050508" />
+    <title>mandala · vgpu</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: #050508;
+        overflow: hidden;
+      }
+      canvas {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        cursor: crosshair;
+      }
+      #ui {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 28px 32px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        color: #e8e6ff;
+        transition: opacity 1.2s ease;
+      }
+      #ui.hidden {
+        opacity: 0;
+      }
+      h1 {
+        margin: 0;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.42em;
+        text-transform: uppercase;
+        opacity: 0.9;
+      }
+      #modes {
+        display: flex;
+        gap: 8px;
+        pointer-events: auto;
+      }
+      #modes button {
+        all: unset;
+        cursor: pointer;
+        font: inherit;
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        padding: 6px 14px;
+        border: 1px solid rgba(232, 230, 255, 0.25);
+        border-radius: 999px;
+        opacity: 0.55;
+        transition: opacity 0.25s, border-color 0.25s, background 0.25s;
+      }
+      #modes button:hover {
+        opacity: 0.85;
+      }
+      #modes button.active {
+        opacity: 1;
+        border-color: rgba(232, 230, 255, 0.9);
+        background: rgba(232, 230, 255, 0.08);
+      }
+      #hint {
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        opacity: 0.45;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="gl"></canvas>
+    <div id="ui">
+      <h1>mandala &middot; vgpu</h1>
+      <div id="modes">
+        <button data-mode="0" class="active">Bloom</button>
+        <button data-mode="1">Depths</button>
+        <button data-mode="2">Temple</button>
+        <button data-mode="3">Echo</button>
+      </div>
+      <div id="hint">move to steer &middot; 1&ndash;4 modes &middot; f fullscreen</div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
